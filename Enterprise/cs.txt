@@ -1,0 +1,88 @@
+
+using System.ComponentModel;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+
+Console.WriteLine(OI MUNDOOO);
+
+int a = 0;
+int  b = 2;
+
+Console.WriteLine(A soma é  + (a + b));
+
+if (a == b){
+Console.WriteLine(É IGUAL);
+}else{
+Console.WriteLine(NAO É IGUAL);
+}
+
+for (int i = 1; i = 10; i++) {
+Console.WriteLine(i);
+
+}
+
+double c = Convert.ToDouble(a);
+Console.WriteLine(c);
+
+Console.WriteLine(Digite seu nome);
+string nome = Console.ReadLine();
+Console.WriteLine(nome);
+
+bool ab = true;
+Console.WriteLine(ab);
+
+EXERCICIOS 
+
+
+ zercicio 1 
+void calcula(string numero) {
+    Console.WriteLine(Centenas +numero[0]);
+    Console.WriteLine(Dezenas +numero[1]);
+    Console.WriteLine(Unidades +numero[2]);
+}
+
+Console.WriteLine(Digite o número de 3 algorismos);
+string numero = Console.ReadLine();
+calcula(numero);
+
+ zercicio 2 
+
+Console.WriteLine(Números pares de 1000 a 1 );
+
+for (int i = 1000; i = 1; i--) {
+    if (i%2==0) {
+        Console.WriteLine(i);
+    }
+}
+
+ zercicio 3 
+
+
+int[] lista = new int[3];
+
+for (int b = 1; b = 8; b++){
+    Console.WriteLine(b-1);
+    Console.WriteLine(b);
+
+    if (b == 1)
+    {
+        lista[0] = 1;
+    }
+    else if (b == 2) {
+        lista[1] = 1;
+    }
+
+    lista[b+ 1] = lista[b] + lista[b-1];
+
+    lista[b + 1] = lista[b - 1] + lista[b];
+
+   
+}
+
+
+foreach (int item in lista) {
+    Console.WriteLine(item);
+}
+
+
