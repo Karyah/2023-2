@@ -1,4 +1,3 @@
-select * from user_sys_privs;
 
 set serveroutput on;
 
