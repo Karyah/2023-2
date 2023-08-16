@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Nome e Sobrenome</string>
+    <string name="initial_message">Gere um nome aleatório</string>
+    <string name="initial_message_success">O nome gerado foi:</string>
+    <string name="generate_button">Gerar Nome</string>
+    <string name="add_name_button">+ Nome</string>
+    <string name="add_surname_button">Sobrenome</string>
+    <string name="to_add_activity">Adicionar Nomes</string>
+    <string name="go_back">Voltar</string>
+</resources>
