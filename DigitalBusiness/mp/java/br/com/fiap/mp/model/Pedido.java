@@ -3,8 +3,22 @@ package br.com.fiap.mp.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+@Entity(name="Pedido")
+@Table(name="pedido")
 public class Pedido {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nomeProduto;
 	private BigDecimal valorProduto;
 	private LocalDate dataDaEntrega;
@@ -26,6 +40,16 @@ public class Pedido {
 		this.urlProduto = urlProduto;
 		this.descricaoProduto = descricaoProduto;
 		this.urlImagem = urlImagem;
+	}
+
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNomeProduto() {
