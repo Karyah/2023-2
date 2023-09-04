@@ -1,0 +1,55 @@
+<html>
+	<head>
+	<meta charset = "UTF-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	</head>
+	<body> 
+	
+		
+		<div class= "container">
+		
+		
+		<div class="p-4 mb-2 bg-body-tertiary rounded-3">
+			<div class="container-fluid py-5">
+				<h1 class="display-5 fw-bold">Novo Pedido</h1> 
+			</div>
+		</div>
+		
+       	
+       <div>
+       		<form action="/pedido/novo" method="post">
+       			<div>
+       				<label for="nomeProduto">Produto</label>
+       				<input name="nomeProduto" placeholder="Nome do Produto">
+       				<small>Informa qual é o nome do produto.</small>
+       			</div>
+       			
+       			<div>
+       				<label for="urlProduto">Url</label>
+       				<input name="urlProduto" placeholder="Url do Produto">
+       				<small>Procura em um site o produto que deseja e cole a url da página aqui.</small>
+       			</div>
+       			
+       			<div>
+       				<label for="urlImagem">Imagem</label>
+       				<input name="urlImagem" placeholder="Url da imagem">
+       				<small>Copie a url da imagem que desejas.</small>
+       			</div>
+       			
+       			<div>
+       				<label for="descricaoProduto">Descricao</label>
+       				<textarea rows="6" placeholder="Adicione aqui os detalhes do produto que você quer vender."></textarea>
+       			</div>
+       			<button type="submit">Cadastrar</button>
+       		</form>
+       </div>
+       
+     
+     
+     
+       </div>
+	</body>
+</html>
+     
+     
+     
