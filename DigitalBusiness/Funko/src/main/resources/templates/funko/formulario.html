@@ -1,0 +1,45 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+	<div class="container">
+		<div th:replace="~{base :: titulo('Cadastro de Funko')}"></div>
+		<div class="card mt-3">
+			<form th:object="${requisicao}" class="card-body" action="/funko/novo" method="POST">
+				<div class="form-group">
+					<label for="nomeFunko">Funko</label> 
+					<input th:field="*{nomeFunko}" th:errorclass="is-invalid" class="form-control" placeholder="nome do produto">
+					<small>Informa qual o nome do funko.</small>
+					<div th:errors="*{nomeFunko}" class="invalid-feedback">Erro do nome do produto</div>
+				</div>
+				<div class="form-group">
+					<label for="urlFunko">Url</label> 
+					<input th:field="*{urlFunko}" th:errorclass="is-invalid" class="form-control" placeholder="url do produto">
+					<small>Procure em um site o produto que você deseja e cole a url da página aqui.</small>
+					<div th:errors="*{urlFunko}" class="invalid-feedback">Erro do Url do produto</div>
+				</div>
+				<div class="form-group">
+					<label for="urlImagem1">Imagem</label> 
+					<input th:field="*{urlImagem1}" th:errorclass="is-invalid" class="form-control" placeholder="url da imagem">
+					<small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores.</small>
+					<div th:errors="*{urlImagem1}" class="invalid-feedback">Erro do Url do imagem</div>
+				</div>
+					<div class="form-group">
+					<label for="urlImagem2">Imagem dentro da caixa</label> 
+					<input th:field="*{urlImagem2}" th:errorclass="is-invalid" class="form-control" placeholder="url da imagem">
+					<small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores.</small>
+					<div th:errors="*{urlImagem2}" class="invalid-feedback">Erro do Url do imagem</div>
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição</label>
+					<textarea th:field="*{descricao}" class="form-control" placeholder="Adicione detalhes importantes para ajudar o comprador."></textarea>
+				</div>
+				<button class="btn btn-primary mt-3" type="submit">Cadastrar</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
+     
+     
