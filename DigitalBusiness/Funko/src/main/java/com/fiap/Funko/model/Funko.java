@@ -55,7 +55,6 @@ public class Funko {
 		this.urlFunko = requisicao.urlFunko();
 		this.urlImagem1 = requisicao.urlImagem1();
 		this.urlImagem2 = requisicao.urlImagem2();
-		this.valorFunko = requisicao.valorFunko();
 		this.status = StatusFunko.AGUARDANDO;
 		
 	}

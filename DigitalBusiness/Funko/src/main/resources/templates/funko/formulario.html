@@ -12,6 +12,7 @@
 					<small>Informa qual o nome do funko.</small>
 					<div th:errors="*{nomeFunko}" class="invalid-feedback">Erro do nome do produto</div>
 				</div>
+			
 				<div class="form-group">
 					<label for="urlFunko">Url</label> 
 					<input th:field="*{urlFunko}" th:errorclass="is-invalid" class="form-control" placeholder="url do produto">

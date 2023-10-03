@@ -11,9 +11,6 @@ public record RequisicaoNovoFunko(
 		String nomeFunko, 
 		
 		@NotBlank
-		BigDecimal valorFunko,
-		
-		@NotBlank
 		String urlFunko,
 		@NotBlank
 		String urlImagem1,

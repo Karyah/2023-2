@@ -26,25 +26,30 @@
 					<div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${funko.nomeFunko}"></div>
 				</th:block>
 				
+				<div class="card-header" th:text=${funko.nomeFunko}></div>
 				<div class="card-body">
+				
 					<div class="row">
 						<div class="col-12 col-sm-8 mb-3">
+						
 							<div class="row">
+							
 								<div class="col-md-5">Valor: 
 									<span th:if="${funko.valorFunko} != null"
-									th:text="'R$ ' + ${#numbers.formatDecimal(funko.valorFunko, 3, 'POINT', 2, 'COMMA')}">199,95</span>
+									th:text="'R$ ' + ${#numbers.formatDecimal(funko.valorFunko, 3, 'POINT', 2, 'COMMA')}"></span>
 								</div>
 								<div class="col-md-7">Data da entrega:
-									<span th:text="${#temporals.format(funko.dataDaEntrega, 'dd/MM/yyyy')}">13/08/2023</span>
+									<span th:text="${#temporals.format(funko.dataDaEntrega, 'dd/MM/yyyy')}"></span>
 								</div>							
 							</div>
+							
 							<div>Produto</div>
 							<div>
 								<input class="form-control" th:value="${funko.urlFunko}" value="url do produto">
 							</div>							
 							<div>Descrição</div>
 							<div>
-								<textarea class="form-control" th:text="${funko.descricao}">descrição do produto</textarea>
+								<textarea class="form-control" th:text="${funko.descricao}"></textarea>
 							</div>
 						</div>
 						<div class="col-12 col-sm-4">
