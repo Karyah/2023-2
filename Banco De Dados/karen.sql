@@ -20,9 +20,22 @@ create table departamento(
 
 insert into departamento values('Financeiro', 12);
 insert into departamento values('Administrativo', 20);
+insert into departamento values('Comercial', 6);
+insert into departamento values('Jurídico', 10);
+insert into departamento values('Marketing', 8);
 
 alter table tb_funcionario add nome_gerente varchar2(80) null;
 insert into tb_funcionario (id_func, salario_func, nome_gerente) values(5,1750,'Carlos Teves');
+
+create table log_funcionario(
+    usuario varchar (80),
+    data_insercao date,
+    tipo varchar(80)  
+);
+
+create table log_dep(
+data_modificacao date
+);
 /*-------------------------------------------------------------------------------------*/
 
 set serveroutput on;
@@ -31,10 +44,10 @@ set serveroutput on;
 EXERCICIOS 1 E 2 PACKAGE
 
 1. Crie um pacote PL/SQL chamado "pkg_funcionario" que contenha uma funï¿½ï¿½o 
-para retornar o salï¿½rio de um funcionï¿½rio com base no ID.
+para retornar o salï¿½rio de um funcioná½rio com base no ID.
 
 2. Adicione um procedimento ao pacote "pkg_funcionario" para atualizar o 
-salï¿½rio de um funcionï¿½rio
+salário de um funcionï¿½rio
 */
 
 create or replace package pkg_funcionario is 
@@ -81,7 +94,7 @@ select * from tb_funcionario;
 /*
 EXERCICIO 3 PACKAGE
 3. Crie um pacote chamado "pkg_matematica" que inclua uma funï¿½ï¿½o para 
-calcular o fatorial de um nï¿½mero.
+calcular o fatorial de um número.
 */
 
 create or replace package pkg_matematica is
@@ -103,8 +116,8 @@ end;
 
 /*
 EXERCICIO 4 PACKAGE
-4. Desenvolva um pacote "pkg_string" que ofereï¿½a uma funï¿½ï¿½o para inverter 
-uma string passado por parï¿½metro
+4. Desenvolva um pacote "pkg_string" que ofereça uma função para inverter 
+uma string passado por parâmetro
 */
 
 /*
@@ -196,6 +209,70 @@ select * from tb_funcionario;
 
 /*
 EXERCICIO 9 - TRIGGERS
-9. Crie um trigger que registre todas as alterações na tabela de funcionï¿½rios em 
+9. Crie um trigger que registre todas as alterações na tabela de funcionários em 
 uma tabela de log.
 */
+
+create or replace trigger log_func before insert or update or delete on tb_funcionario
+    begin 
+        if inserting then 
+            insert into log_funcionario values (user, sysdate, 'Insert');
+        elsif updating then 
+            insert into log_funcionario values (user, sysdate, 'Update');
+        else 
+            insert into log_funcionario values (user, sysdate, 'Delete');
+        end if;
+    end; 
+    
+/*Verificando se está mostrando no log*/
+insert into tb_funcionario values(2,3200, 'Ana Carla');
+
+select * from log_funcionario;
+select * from tb_funcionario;
+/*
+10. Escreva um trigger que impeça a inserção de um novo funcionário com
+salário menor que o salário mínimo atual da nossa legislação.
+*/
+
+create or replace procedure validar_salario(p_salario in number) as
+    begin 
+    if p_salario < 1320 then
+        raise_application_error(-20001, 'O salário não pode ser menor que o salário mínimo.');  
+    end if;
+    end;
+    
+create or replace trigger verifica_sal
+    before insert on tb_funcionario
+    for each row
+        begin 
+            validar_salario(:new.salario_func);
+        end;
+
+insert into tb_funcionario values(6,1100, 'Beatriz');
+/*  
+11. Desenvolva um trigger que atualize automaticamente a data de modificação
+da tabela departamento, sempre que um registro na tabela de departamentos
+for atualizado.
+*/
+
+create or replace trigger log_departamento before update on departamento
+begin 
+    if updating then
+        insert into log_dep values(sysdate);
+    end if;
+end;
+
+insert into departamento values('T.I', 20);
+
+update departamento set nome = 'Programação ' where nome='T.I';
+
+select * from log_dep;
+
+/*
+12. Implemente um trigger que notifique em uma tabela de recursos humanos
+sempre que um novo funcionário for contratado.
+*/
+
+
+
+
