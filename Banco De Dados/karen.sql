@@ -230,6 +230,7 @@ insert into tb_funcionario values(2,3200, 'Ana Carla');
 select * from log_funcionario;
 select * from tb_funcionario;
 /*
+EXERCICIO 10 - TRIGGERS
 10. Escreva um trigger que impeça a inserção de um novo funcionário com
 salário menor que o salário mínimo atual da nossa legislação.
 */
@@ -250,6 +251,7 @@ create or replace trigger verifica_sal
 
 insert into tb_funcionario values(6,1100, 'Beatriz');
 /*  
+EXERCICIO 11 - TRIGGERS
 11. Desenvolva um trigger que atualize automaticamente a data de modificação
 da tabela departamento, sempre que um registro na tabela de departamentos
 for atualizado.
